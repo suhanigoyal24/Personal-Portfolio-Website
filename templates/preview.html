@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Preview{% endblock %}
+
+{% block content %}
+<h2>Profile Preview</h2>
+
+<p>Name: {{ profile.full_name }}</p>
+<p>Bio: {{ profile.bio }}</p>
+
+{% endblock %}

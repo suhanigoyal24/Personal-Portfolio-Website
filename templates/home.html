@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | PortfolioPro{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="home-card">
+        <h1>Personal Portfolio Management</h1>
+        <p>
+            Build and manage your professional portfolio with ease.
+            Create, customize, and showcase your work using a secure Django-powered platform.
+        </p>
+
+        <a href="{% url 'login' %}" class="btn login-btn">Login</a>
+        <a href="{% url 'register' %}" class="btn register-btn">Register</a>
+    </div>
+</div>
+{% endblock %}

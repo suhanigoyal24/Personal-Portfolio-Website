@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Login | PortfolioPro{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-card">
+        <h1>Welcome to PortfolioPro</h1>
+        <p>Build your professional portfolio in minutes</p>
+
+        <form method="POST" novalidate>
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="error-message">
+                    {% for error in form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <label for="{{ form.username.id_for_label }}">Email Address</label>
+            <div class="input-group">
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                    <div class="error-message">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <label for="{{ form.password.id_for_label }}">Password</label>
+            <div class="input-group">
+                {{ form.password }}
+                {% for error in form.password.errors %}
+                    <div class="error-message">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="{% url 'password_reset' %}">Forgot password?</a>
+            </div>
+
+            <button type="submit">Sign In</button>
+        </form>
+
+        <div class="divider">or continue with</div>
+        <button class="google-btn" disabled>
+            Sign in with Google (Coming Soon)
+        </button>
+
+        <p class="signup-link">
+            Don't have an account?
+            <a href="{% url 'register' %}">Sign up</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
